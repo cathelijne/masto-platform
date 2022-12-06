@@ -10,6 +10,8 @@ module "spaces" {
 module "spaces-backups" {
   source = "../../../modules/spaces"
 
-  spaces_name   = "backup-toot-community"
-  region        = "ams3"
+  spaces_name = "backup-toot-community"
+  region      = "ams3"
+
+  expiration_enabled = true
 }

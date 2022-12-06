@@ -3,6 +3,20 @@ resource "digitalocean_spaces_bucket" "this" {
   region = var.region
   acl    = "private"
 
+  dynamic "lifecycle_rule" {
+    for_each = var.expiration_enabled == true ? [1] : []
+    content {
+      id      = "${var.spaces_name}-lifecycle-rule"
+      enabled = true
+      expiration {
+        days = 7
+      }
+      noncurrent_version_expiration {
+        days = 7
+      }
+    }
+  }
+
   dynamic "cors_rule" {
     for_each = length(var.cors_hostname) > 0 ? [1] : []
     content {

@@ -20,3 +20,9 @@ variable "cors_hostname" {
   description = "(Optional) Hostname to trust for CORS"
   default     = ""
 }
+
+variable "expiration_enabled" {
+  type        = bool
+  description = "Enable lifecycle policy (true/false)"
+  default     = false
+}
