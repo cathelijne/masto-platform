@@ -5,7 +5,7 @@ module "databases" {
   db_cluster_name      = "db-postgresql-ams3-toot-community"
   db_cluster_version   = "14"
   db_node_count        = "1"
-  db_cluster_size      = "gd-4vcpu-16gb"
+  db_cluster_size      = "db-s-4vcpu-8gb"
   connection_pool_name = "mastodon-pool"
   connection_pool_size = 397
 
