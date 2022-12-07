@@ -28,7 +28,7 @@ resource "digitalocean_spaces_bucket" "this" {
 }
 
 resource "digitalocean_certificate" "this" {
-  count             = length(var.cdn_hostname) > 0 ? 1 : 0
+  count             = length(var.cdn_hostname) > 0 && length(var.existing_cdn_certificate) == 0 ? 1 : 0
   name              = "cf-origin-cert"
   type              = "custom"
   private_key       = file("../../../certificates/origin-cert.key")
@@ -46,5 +46,5 @@ resource "digitalocean_cdn" "this" {
   count            = length(var.cdn_hostname) > 0 ? 1 : 0
   origin           = digitalocean_spaces_bucket.this.bucket_domain_name
   custom_domain    = var.cdn_hostname
-  certificate_name = digitalocean_certificate.this[count.index].name
+  certificate_name = length(var.existing_cdn_certificate) > 0 ? var.existing_cdn_certificate : digitalocean_certificate.this[0].name
 }
