@@ -3,7 +3,7 @@ module "kubernetes" {
 
   # Cluster
   doks_cluster_name    = "k8s-toot-community-1"
-  doks_cluster_version = "1.24.4-do.0"
+  doks_cluster_version = "1.25.4-do.0"
   region               = "ams3"
 
   # Node pool - generic
