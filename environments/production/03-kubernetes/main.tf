@@ -5,6 +5,7 @@ module "kubernetes" {
   doks_cluster_name    = "k8s-toot-community-1"
   doks_cluster_version = "1.25.4-do.0"
   region               = "ams3"
+  high_availability    = true
 
   # Node pool - generic
   generic_pool_name      = "pool-generic-3"

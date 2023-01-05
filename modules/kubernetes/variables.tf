@@ -59,4 +59,8 @@ variable "vpc_name" {
   description = "Name to give to the VPC"
 }
 
-
+variable "high_availability" {
+  type        = bool
+  description = "Whether to enable high availability"
+  default     = false
+}

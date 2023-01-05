@@ -5,7 +5,7 @@ resource "digitalocean_kubernetes_cluster" "this" {
   vpc_uuid      = data.digitalocean_vpc.this.id
   auto_upgrade  = true
   surge_upgrade = true
-  ha            = false
+  ha            = var.high_availability
 
   maintenance_policy {
     day        = "any"
