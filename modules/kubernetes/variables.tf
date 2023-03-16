@@ -24,6 +24,11 @@ variable "sidekiq_pool_name" {
   description = "Name of the sidekiq pool"
 }
 
+variable "db_pool_name" {
+  type        = string
+  description = "Name of the db pool"
+}
+
 variable "generic_pool_size" {
   type        = string
   description = "Size slug for the generic pool"
@@ -32,6 +37,11 @@ variable "generic_pool_size" {
 variable "sidekiq_pool_size" {
   type        = string
   description = "Size slug for the sidekiq pool"
+}
+
+variable "db_pool_size" {
+  type        = string
+  description = "Size slug for the db pool"
 }
 
 variable "generic_pool_min_nodes" {
@@ -52,6 +62,16 @@ variable "sidekiq_pool_min_nodes" {
 variable "sidekiq_pool_max_nodes" {
   type        = string
   description = "Maximum number of nodes in the sidekiq pool"
+}
+
+variable "db_pool_min_nodes" {
+  type        = number
+  description = "Minimum number of nodes in the db pool"
+}
+
+variable "db_pool_max_nodes" {
+  type        = string
+  description = "Maximum number of nodes in the db pool"
 }
 
 variable "vpc_name" {
