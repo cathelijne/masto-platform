@@ -1,6 +1,18 @@
 module "databases" {
   source = "../../../modules/databases"
 
+  # PostgreSQL
+  db_cluster_name      = "db-postgresql-ams3-toot-community"
+  db_cluster_version   = "14"
+  db_node_count        = "1"
+  db_cluster_size      = "db-s-4vcpu-8gb"
+  connection_pool_name = "mastodon-pool"
+  connection_pool_size = 197
+
+  # Postgresql database
+  db_username = "mastodon"
+  db_name     = "mastodon"
+
   # Redis
   redis_cluster_name    = "db-redis-ams3-toot-community"
   redis_cluster_version = "7"
