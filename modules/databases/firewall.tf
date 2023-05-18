@@ -25,4 +25,9 @@ resource "digitalocean_database_firewall" "postgresql" {
     type  = "droplet"
     value = "355256406"
   }
+
+  rule {
+    type  = "ip_addr"
+    value = "94.208.138.60"
+  }
 }
