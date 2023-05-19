@@ -6,10 +6,8 @@ module "databases" {
   db_cluster_version = "15"
   db_node_count      = "1"
   db_cluster_size    = "db-s-4vcpu-8gb"
-
-  # Databases & Users
-  db_usernames = ["app", "esb"]
-  db_names     = ["app", "esb"]
+  db_usernames       = ["app", "esb"]
+  db_names           = ["app", "esb"]
 
   # Pools
   db_connection_pools = [
