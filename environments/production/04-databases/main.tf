@@ -21,7 +21,7 @@ module "databases" {
     {
       name     = "esb-pool"
       size     = 3,
-      mode     = "transaction",
+      mode     = "session",
       user     = "esb",
       database = "esb"
     }
