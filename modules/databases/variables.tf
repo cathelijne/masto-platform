@@ -19,24 +19,25 @@ variable "db_cluster_size" {
   description = "Sizing of the DB cluster"
 }
 
-variable "db_username" {
-  type        = string
-  description = "Name of the user to create on the DB cluster"
+variable "db_usernames" {
+  type        = list(string)
+  description = "Names of the users to create on the DB cluster"
 }
 
-variable "db_name" {
-  type        = string
-  description = "Naem of the database to create on the DB cluster"
+variable "db_names" {
+  type        = list(string)
+  description = "names of the databases to create on the DB cluster"
 }
 
-variable "connection_pool_name" {
-  type        = string
-  description = "Name of the connection pool on the DB cluster"
-}
-
-variable "connection_pool_size" {
-  type        = string
-  description = "Size of the connection pool on the DB cluster"
+variable "db_connection_pools" {
+  type = list(object({
+    name     = string
+    size     = string
+    user     = string
+    database = string
+    mode     = string
+  }))
+  description = "List of connection pools to create in the database cluster"
 }
 
 # Redis
