@@ -29,6 +29,7 @@ module "domain" {
     { name = "monitoring", type = "A", value = "188.166.132.64" },
     { name = "relay", type = "A", value = "188.166.132.64" },
     { name = "tls", type = "A", value = "206.189.241.51" },
+    { name = "esb", type = "A", value = "206.189.241.51" },
     { name = "status", type = "CNAME", value = "statuspage.betteruptime.com." },
 
     # GitHub Pages (Blog)
