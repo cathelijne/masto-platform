@@ -35,7 +35,7 @@ module "domain" {
     { name = "blog", type = "CNAME", value = "toot-community.github.io." },
     { name = "_github-challenge-toot-community-org", type = "TXT", value = "f3bab071b9" },
 
-    # Amazon SES / Email
+    # Amazon SES (Outgoing Email)
     {
       name  = "2l2pnxso5mjulqkrrn3pq47pirpppeus", type = "CNAME",
       value = "2l2pnxso5mjulqkrrn3pq47pirpppeus.dkim.amazonses.com."
@@ -50,6 +50,11 @@ module "domain" {
     },
     { name = "ses", type = "MX", value = "feedback-smtp.eu-west-1.amazonses.com.", priority = 10 },
     { name = "ses", type = "TXT", value = "v=spf1 include:amazonses.com ~all" },
+
+    # Email
+    { name = "@", type = "MX", value = "mx1.improvmx.com.", priority = 10 },
+    { name = "@", type = "MX", value = "mx2.improvmx.com.", priority = 20 },
+    { name = "@", type = "TXT", value = "v=spf1 include:spf.improvmx.com -all" },
     {
       name  = "_dmarc", type = "TXT",
       value = "v=DMARC1; p=none; pct=100; rua=mailto:re+uojmv5z8mwt@dmarc.postmarkapp.com; sp=none; aspf=r;"
