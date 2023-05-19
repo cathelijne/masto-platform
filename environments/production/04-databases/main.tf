@@ -2,16 +2,32 @@ module "databases" {
   source = "../../../modules/databases"
 
   # PostgreSQL
-  db_cluster_name      = "db-postgresql-ams3-toot-community"
-  db_cluster_version   = "15"
-  db_node_count        = "1"
-  db_cluster_size      = "db-s-4vcpu-8gb"
-  connection_pool_name = "app-pool"
-  connection_pool_size = 197
+  db_cluster_name    = "db-postgresql-ams3-toot-community"
+  db_cluster_version = "15"
+  db_node_count      = "1"
+  db_cluster_size    = "db-s-4vcpu-8gb"
 
-  # Postgresql database
-  db_username = "app"
-  db_name     = "app"
+  # Databases & Users
+  db_usernames = ["app", "esb"]
+  db_names     = ["app", "esb"]
+
+  # Pools
+  db_connection_pools = [
+    {
+      name     = "app-pool"
+      size     = 194,
+      mode     = "transaction",
+      user     = "app",
+      database = "app"
+    },
+    {
+      name     = "esb-pool"
+      size     = 3,
+      mode     = "transaction",
+      user     = "esb",
+      database = "esb"
+    }
+  ]
 
   # Redis
   redis_cluster_name    = "db-redis-ams3-toot-community"

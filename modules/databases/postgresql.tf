@@ -9,20 +9,24 @@ resource "digitalocean_database_cluster" "postgresql" {
 }
 
 resource "digitalocean_database_user" "postgresql" {
+  for_each   = {for username in var.db_usernames : username => username}
   cluster_id = digitalocean_database_cluster.postgresql.id
-  name       = var.db_username
+  name       = each.value
 }
 
 resource "digitalocean_database_db" "postgresql" {
+  for_each   = {for database in var.db_usernames : database => database}
   cluster_id = digitalocean_database_cluster.postgresql.id
-  name       = var.db_name
+  name       = each.value
 }
 
 resource "digitalocean_database_connection_pool" "postgresql" {
+  for_each = {for idx, pool in var.db_connection_pools : pool.name => pool}
+
   cluster_id = digitalocean_database_cluster.postgresql.id
-  db_name    = var.db_name
-  user       = var.db_username
-  mode       = "transaction"
-  name       = var.connection_pool_name
-  size       = var.connection_pool_size
+  db_name    = each.value.database
+  user       = each.value.user
+  mode       = each.value.mode
+  name       = each.value.name
+  size       = each.value.size
 }
