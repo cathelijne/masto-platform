@@ -18,16 +18,4 @@ resource "digitalocean_database_firewall" "postgresql" {
     type  = "k8s"
     value = data.digitalocean_kubernetes_cluster.this.id
   }
-
-  # Temporary rule for the database migration
-  # Can be removed once we run on the managed PSQL cluster
-  rule {
-    type  = "droplet"
-    value = "355256406"
-  }
-
-  rule {
-    type  = "ip_addr"
-    value = "94.208.138.60"
-  }
 }
