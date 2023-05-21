@@ -19,12 +19,6 @@ module "kubernetes" {
   sidekiq_pool_min_nodes = 1
   sidekiq_pool_max_nodes = 6
 
-  # Node pool - db
-  db_pool_name      = "pool-db-2"
-  db_pool_size      = "g-4vcpu-16gb"
-  db_pool_min_nodes = 1
-  db_pool_max_nodes = 2
-
   # Networking
   vpc_name = "ams3-vpc-toot-community-01"
 }
