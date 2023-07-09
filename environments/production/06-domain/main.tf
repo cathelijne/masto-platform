@@ -28,6 +28,7 @@ module "domain" {
     { name = "@", type = "TXT", value = "google-site-verification=vKFUBJLyiP68EJv81ewOeD6hdd_qcBGvpe6RsIIu6a0" },
 
     # toot.community Services
+    { name = "streaming", type = "A", value = "188.166.132.64" },
     { name = "argocd", type = "A", value = "188.166.132.64" },
     { name = "monitoring", type = "A", value = "188.166.132.64" },
     { name = "relay", type = "A", value = "188.166.132.64" },
