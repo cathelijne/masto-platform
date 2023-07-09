@@ -24,6 +24,9 @@ module "domain" {
     { name = "_acme-challenge", type = "CNAME", value = "j0zavl8txaeduucvua.fastly-validations.com." },
     { name = "_acme-challenge.www", type = "CNAME", value = "qlenbedoslxxzkgx3rf.fastly-validations.com." },
 
+    # Google
+    { name = "@", type = "TXT", value = "google-site-verification=vKFUBJLyiP68EJv81ewOeD6hdd_qcBGvpe6RsIIu6a0" },
+
     # toot.community Services
     { name = "argocd", type = "A", value = "188.166.132.64" },
     { name = "monitoring", type = "A", value = "188.166.132.64" },
