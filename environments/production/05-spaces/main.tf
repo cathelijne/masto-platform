@@ -3,7 +3,6 @@ module "spaces" {
 
   spaces_name = "static-toot-community"
   region      = "ams3"
-  cdn_enabled = true
 }
 
 module "spaces-db-backups" {
