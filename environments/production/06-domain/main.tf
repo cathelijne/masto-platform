@@ -37,6 +37,10 @@ module "domain" {
     { name = "fluent-bit", type = "A", value = "188.166.132.64" },
     { name = "status", type = "CNAME", value = "statuspage.betteruptime.com." },
 
+    # toot.community VPC
+    # update me when `dbs-toot-community-1` is adopted into TF
+    { name = "dbs-toot-community-1.private", type = "A", value = "10.110.0.5", ttl = 60 },
+
     # GitHub Pages (Blog)
     { name = "blog", type = "CNAME", value = "toot-community.github.io." },
     { name = "_github-challenge-toot-community-org", type = "TXT", value = "f3bab071b9" },
